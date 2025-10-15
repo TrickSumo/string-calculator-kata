@@ -18,7 +18,19 @@ describe('String Calculator AddKata', () => {
         expect(add("1,2,3,4,5")).toBe(15);
     });
 
-    test(' handle new lines between numbers', () => {
+    test('Handle new lines between numbers', () => {
         expect(add("1\n2,3")).toBe(6);
+    });
+
+    test('Support different delimiters - A', () => {
+        expect(add("//;\n1;2")).toBe(3);
+    });
+
+    test('Support different delimiters - B', () => {
+        expect(add("//B\n1B2,6")).toBe(9);
+    });
+
+    test('Support different delimiters - C', () => {
+        expect(add("//#\n1#2")).toBe(3);
     });
 });
