@@ -1,35 +1,39 @@
 const add = (numbers) => {
 
-    if(!numbers) return 0;
+    if (!numbers) return 0;
 
-    let delimiter = '\n';
+    const delimiters = ['\n'];
 
-    if(numbers.startsWith('//[')) {
-        const endIdx = numbers.indexOf(']');
-        delimiter = numbers.slice(3, endIdx);
-        numbers = numbers.slice(endIdx + 2);    
+    if (numbers.startsWith('//[')) {
+        const delimiterBlocks = numbers.split(']').slice(0, -1);
+        delimiterBlocks.forEach(block => {
+            delimiters.push(block.split('[')[1]);
+        });
+
+        numbers = numbers.slice(numbers.indexOf(']\n') + 2);
     }
-
-    if(numbers.startsWith('//')) {
-        delimiter = numbers[2];
+    else if (numbers.startsWith('//')) {
+        delimiters[0] = numbers[2];
         numbers = numbers.slice(4);
     }
 
-    let numArr = numbers.split(delimiter).join(',').split(',');
+    delimiters.forEach(delimiter => {
+        numbers = numbers.split(delimiter).join(',');
+    });
+    let numArr = numbers.split(',');
 
     let negativeNumbers = numArr.filter(num => parseInt(num) < 0);
-    if(negativeNumbers.length > 0) {
+    if (negativeNumbers.length > 0) {
         throw new Error(`negative numbers not allowed ${negativeNumbers.join(',')}`);
     }
-    
-    if(numArr.length > 0) {
+
+    if (numArr.length > 0) {
         let sum = 0;
         numArr.forEach(num => {
             if (num <= 1000) sum += parseInt(num);
         });
         return sum;
     }
-
 }
 
 module.exports = { add };
