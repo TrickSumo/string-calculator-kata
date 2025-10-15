@@ -1,6 +1,6 @@
 const add = (numbers) => {
 
-    return 0;
+    return numbers;
 
 }
 
