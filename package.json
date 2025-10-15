@@ -11,7 +11,7 @@
     "url": "git+https://github.com/TrickSumo/string-calculator-kata.git"
   },
   "license": "ISC",
-  "author": "",
+  "author": "Rishi",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
