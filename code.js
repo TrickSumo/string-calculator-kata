@@ -19,7 +19,7 @@ const add = (numbers) => {
     if(numArr.length > 0) {
         let sum = 0;
         numArr.forEach(num => {
-            sum += parseInt(num);
+            if (num <= 1000) sum += parseInt(num);
         });
         return sum;
     }

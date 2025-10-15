@@ -41,4 +41,8 @@ describe('String Calculator AddKata', () => {
     test('Multiple negative numbers will throw an exception', () => {
         expect(() => add("//$\n1$2,-3,-4,-5")).toThrow('negative numbers not allowed -3,-4,-5');
     });
+
+    test('Numbers bigger than 1000 should be ignored', () => {
+        expect(add("//#\n1011#2,4")).toBe(6);
+    });
 });
