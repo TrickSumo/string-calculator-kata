@@ -4,6 +4,12 @@ const add = (numbers) => {
 
     let delimiter = '\n';
 
+    if(numbers.startsWith('//[')) {
+        const endIdx = numbers.indexOf(']');
+        delimiter = numbers.slice(3, endIdx);
+        numbers = numbers.slice(endIdx + 2);    
+    }
+
     if(numbers.startsWith('//')) {
         delimiter = numbers[2];
         numbers = numbers.slice(4);

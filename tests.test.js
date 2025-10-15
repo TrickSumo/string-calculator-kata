@@ -45,4 +45,16 @@ describe('String Calculator AddKata', () => {
     test('Numbers bigger than 1000 should be ignored', () => {
         expect(add("//#\n1011#2,4")).toBe(6);
     });
+
+    test('Delimiters can be of any length - A', () => {
+        expect(add("//[***]\n1***2***3")).toBe(6);
+    });
+
+    test('Delimiters can be of any length - B', () => {
+        expect(add("//[####]\n1####2,3")).toBe(6);
+    });
+
+    test('Delimiters can be of any length - C', () => {
+        expect(add("//[%]\n1%2%3")).toBe(6);
+    });
 });
