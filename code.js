@@ -1,6 +1,8 @@
 const add = (numbers) => {
 
-    return numbers;
+    if(!numbers) return 0;
+
+    return parseInt(numbers);
 
 }
 
