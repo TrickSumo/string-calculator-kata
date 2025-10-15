@@ -10,6 +10,11 @@ const add = (numbers) => {
     }
 
     let numArr = numbers.split(delimiter).join(',').split(',');
+
+    let negativeNumber = numArr.find(num => parseInt(num) < 0);
+    if(negativeNumber) {
+        throw new Error(`negative numbers not allowed ${negativeNumber}`);
+    }
     
     if(numArr.length > 0) {
         let sum = 0;

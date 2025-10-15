@@ -33,4 +33,8 @@ describe('String Calculator AddKata', () => {
     test('Support different delimiters - C', () => {
         expect(add("//#\n1#2")).toBe(3);
     });
+
+    test('Negative number will throw an exception', () => {
+        expect(() => add("//$\n1$2,-3")).toThrow('negative numbers not allowed -3');
+    });
 });
