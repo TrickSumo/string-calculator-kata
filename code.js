@@ -11,9 +11,9 @@ const add = (numbers) => {
 
     let numArr = numbers.split(delimiter).join(',').split(',');
 
-    let negativeNumber = numArr.find(num => parseInt(num) < 0);
-    if(negativeNumber) {
-        throw new Error(`negative numbers not allowed ${negativeNumber}`);
+    let negativeNumbers = numArr.filter(num => parseInt(num) < 0);
+    if(negativeNumbers.length > 0) {
+        throw new Error(`negative numbers not allowed ${negativeNumbers.join(',')}`);
     }
     
     if(numArr.length > 0) {

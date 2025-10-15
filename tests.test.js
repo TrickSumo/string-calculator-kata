@@ -37,4 +37,8 @@ describe('String Calculator AddKata', () => {
     test('Negative number will throw an exception', () => {
         expect(() => add("//$\n1$2,-3")).toThrow('negative numbers not allowed -3');
     });
+
+    test('Multiple negative numbers will throw an exception', () => {
+        expect(() => add("//$\n1$2,-3,-4,-5")).toThrow('negative numbers not allowed -3,-4,-5');
+    });
 });
