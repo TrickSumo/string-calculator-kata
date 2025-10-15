@@ -2,7 +2,7 @@ const add = (numbers) => {
 
     if(!numbers) return 0;
 
-    numArr = numbers.split(',');
+    let numArr = numbers.split('\n').join(',').split(',');
     
     if(numArr.length > 0) {
         let sum = 0;
