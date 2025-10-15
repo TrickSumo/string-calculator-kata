@@ -2,7 +2,15 @@ const add = (numbers) => {
 
     if(!numbers) return 0;
 
-    return parseInt(numbers);
+    numArr = numbers.split(',');
+    
+    if(numArr.length > 0) {
+        let sum = 0;
+        numArr.forEach(num => {
+            sum += parseInt(num);
+        });
+        return sum;
+    }
 
 }
 
